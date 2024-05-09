@@ -1,4 +1,4 @@
-package Edu.Syne.application.usecases.client.gateways;
+package Edu.Syne.application.usecases.client.gateway;
 
 import Edu.Syne.application.entities.Client;
 

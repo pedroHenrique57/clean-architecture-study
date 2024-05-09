@@ -1,10 +1,8 @@
-package Edu.Syne.application.usecases.client;
+package Edu.Syne.application.usecases.contaPoupanca;
 
 import Edu.Syne.application.entities.Client;
 
-public interface ClientInterface {
-
-  // Other things
+public interface ContaInterface {
 
   public void saqueConta(Client client);
 

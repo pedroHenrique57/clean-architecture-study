@@ -1,61 +1,35 @@
 package Edu.Syne.application.usecases.client;
 
 import Edu.Syne.application.entities.Client;
-import Edu.Syne.application.usecases.client.gateways.ClientGateway;
+import Edu.Syne.application.usecases.client.gateway.ClientGateway;
+import Edu.Syne.application.usecases.contaPoupanca.ContaInteractor;
 
 public class ClientInteractor implements ClientInterface {
   private ClientGateway clientGateway;
+  private ContaInteractor contaInteractor;
 
-  public ClientInteractor(ClientGateway clientGateway) {
+  public ClientInteractor(ClientGateway clientGateway, ContaInteractor contaInteractor) {
     this.clientGateway = clientGateway;
-  }
-
-  @Override
-  public Client create(Client client) {
-    clientGateway.create(client);
-    return null;
-  }
-
-  @Override
-  public Client read(Client client) {
-    clientGateway.read(client);
-    return null;
-  }
-
-  @Override
-  public Client update(Client client) {
-    clientGateway.update(client);
-    return null;
-  }
-
-  @Override
-  public Client delete(Client client) {
-    clientGateway.delete(client);
-    return null;
+    this.contaInteractor = contaInteractor;
   }
 
   @Override
   public void saqueConta(Client client) {
-
+    contaInteractor.saqueConta(client);
   }
 
   @Override
   public void depositoConta(Client client) {
-
+    contaInteractor.depositoConta(client);
   }
 
   @Override
   public void transferenciaConta(Client clientSender, Client clientRecipient) {
-
+    contaInteractor.transferenciaConta(clientSender, clientRecipient);
   }
 
   @Override
   public void consultarContas(Client client) {
-
-  }
-
-  @Override
-  public void consultarConta(Client client) {
-
+    contaInteractor.consultarContas(client);
   }
 }
