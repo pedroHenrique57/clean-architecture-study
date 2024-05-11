@@ -1,4 +1,4 @@
 package Edu.Syne.application.entities;
 
-public record conta(int idContaPoupanca) {
+public record conta(int idConta, int idClient) {
 }
