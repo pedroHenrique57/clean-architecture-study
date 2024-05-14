@@ -2,7 +2,7 @@ package Edu.Syne.application.usecases.client;
 
 import Edu.Syne.application.entities.Client;
 import Edu.Syne.application.usecases.client.gateway.ClientGateway;
-import Edu.Syne.application.usecases.contaPoupanca.ContaInteractor;
+import Edu.Syne.application.usecases.conta.ContaInteractor;
 
 public class ClientInteractor implements ClientInterface {
   private ClientGateway clientGateway;

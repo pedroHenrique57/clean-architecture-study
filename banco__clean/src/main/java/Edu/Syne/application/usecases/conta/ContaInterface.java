@@ -1,4 +1,4 @@
-package Edu.Syne.application.usecases.contaPoupanca;
+package Edu.Syne.application.usecases.conta;
 
 import Edu.Syne.application.entities.Client;
 

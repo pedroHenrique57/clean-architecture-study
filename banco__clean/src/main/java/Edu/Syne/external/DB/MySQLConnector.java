@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class MySQLConnector {
+  //      Todo: make spring db Connection
 
   public static Connection openConnection() throws IOException, SQLException {
     InputStream in = Main.class.getClassLoader().getResourceAsStream("database.properties");

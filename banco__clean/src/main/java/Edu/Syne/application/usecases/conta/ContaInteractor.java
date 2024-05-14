@@ -1,7 +1,7 @@
-package Edu.Syne.application.usecases.contaPoupanca;
+package Edu.Syne.application.usecases.conta;
 
 import Edu.Syne.application.entities.Client;
-import Edu.Syne.application.usecases.contaPoupanca.gateway.ContaGateway;
+import Edu.Syne.application.usecases.conta.gateway.ContaGateway;
 
 public class ContaInteractor implements ContaInterface{
   public ContaGateway contaGateway;
