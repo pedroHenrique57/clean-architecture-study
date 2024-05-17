@@ -1,31 +1,36 @@
 package Edu.Syne.application.usecases.conta.gateway;
 
-import Edu.Syne.application.entities.Conta;
-import Edu.Syne.external.DB.repository.persistence.ContaCorrente.ContaCorrenteRepository;
+import Edu.Syne.application.entities.Client;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ContaRepositoryGateway implements ContaGateway {
-  private final ContaCorrenteRepository repository;
 
-  public ContaRepositoryGateway(ContaCorrenteRepository repository) {
-    this.repository = repository;
+  private final JdbcTemplate template;
+
+  @Autowired
+  public ContaRepositoryGateway(JdbcTemplate template) {
+    this.template = template;
   }
 
   @Override
-  public void create(Conta conta) {
+  public void create(Client client) {
   }
 
   @Override
-  public void read(Conta conta) {
-
-  }
-
-  @Override
-  public void update(Conta conta) {
+  public void read(Client client) {
 
   }
 
   @Override
-  public void delete(Conta conta) {
+  public void update(Client client) {
+
+  }
+
+  @Override
+  public void delete(Client client) {
 
   }
 }

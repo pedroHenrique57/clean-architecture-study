@@ -1,4 +1,4 @@
 package Edu.Syne.application.entities;
 
-public record Banco(int idBanco) {
+public record Bank(int idBanco) {
 }

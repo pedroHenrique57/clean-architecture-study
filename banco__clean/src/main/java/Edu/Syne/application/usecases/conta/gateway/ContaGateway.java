@@ -1,14 +1,14 @@
 package Edu.Syne.application.usecases.conta.gateway;
 
-import Edu.Syne.application.entities.Conta;
+import Edu.Syne.application.entities.Client;
 
 public interface ContaGateway {
 
-  public void create(Conta conta);
+  public void create(Client client);
 
-  public void read(Conta conta);
+  public void read(Client client);
 
-  public void update(Conta conta);
+  public void update(Client client);
 
-  public void delete(Conta conta);
+  public void delete(Client client);
 }
