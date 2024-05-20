@@ -1,7 +1,6 @@
 package Edu.Syne.application.usecases.banco.gateway;
 
-import Edu.Syne.application.entities.Bank;
-import Edu.Syne.domain.entities.BancoRepositoryEntity;
+import Edu.Syne.application.entities.bankBusinessRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -9,24 +8,24 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public class BancoRepositoryGateway implements BancoGateway {
+public class bankRepositoryGateway implements bankGateway {
 
   private final JdbcTemplate template;
 
   @Autowired
-  public BancoRepositoryGateway(JdbcTemplate template) {
+  public bankRepositoryGateway(JdbcTemplate template) {
     this.template = template;
   }
 
   @Override
-  public void createBank(BancoRepositoryEntity bank) {
-    String sql = "INSERT INTO banco (nome) values (?)";
+  public void createBank(bankBusinessRule bank) {
+    String sql = "INSERT INTO bank (name) values (?)";
 
-    this.template.update(sql, bank.getNome());
+    this.template.update(sql, bank.name());
   }
 
   @Override
-  public ArrayList<Bank> readBank() {
+  public ArrayList<bankBusinessRule> readBank() {
 
     return null;
   }
@@ -42,13 +41,13 @@ public class BancoRepositoryGateway implements BancoGateway {
   }
 
   @Override
-  public Bank findBankById(int id) {
+  public bankBusinessRule findBankById(int id) {
 
     return null;
   }
 
   @Override
-  public ArrayList<Bank> findAllBanks() {
+  public ArrayList<bankBusinessRule> findAllBanks() {
 
     return null;
   }
