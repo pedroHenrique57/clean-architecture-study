@@ -1,35 +1,96 @@
 package Edu.Syne.application.usecases.client;
 
-import Edu.Syne.application.entities.Client;
-import Edu.Syne.application.usecases.client.gateway.ClientGateway;
-import Edu.Syne.application.usecases.conta.ContaInteractor;
+import Edu.Syne.application.entities.accounts.accountBusinessRule;
+import Edu.Syne.application.entities.accounts.checkingAccountBusinessRule;
+import Edu.Syne.application.entities.accounts.savingsAccountBusinessRule;
+import Edu.Syne.application.entities.clientBusinessRule;
+import Edu.Syne.application.usecases.client.gateway.clientGateway;
+import Edu.Syne.application.usecases.client.gateway.clientRepositoryGateway;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ClientInteractor implements ClientInterface {
-  private ClientGateway clientGateway;
-  private ContaInteractor contaInteractor;
+import java.util.ArrayList;
 
-  public ClientInteractor(ClientGateway clientGateway, ContaInteractor contaInteractor) {
+@Component
+public class clientInteractor implements clientInterface {
+
+  private final clientGateway clientGateway;
+
+  @Autowired
+  public clientInteractor(clientRepositoryGateway clientGateway) {
     this.clientGateway = clientGateway;
-    this.contaInteractor = contaInteractor;
+  }
+
+  //  Client CRUD
+
+  @Override
+  public void createClient(clientBusinessRule client) {
+    this.clientGateway.createClient(client);
   }
 
   @Override
-  public void saqueConta(Client client) {
-    contaInteractor.saqueConta(client);
+  public void readClient(clientBusinessRule client) {
   }
 
   @Override
-  public void depositoConta(Client client) {
-    contaInteractor.depositoConta(client);
+  public void updateClient(clientBusinessRule client) {
   }
 
   @Override
-  public void transferenciaConta(Client clientSender, Client clientRecipient) {
-    contaInteractor.transferenciaConta(clientSender, clientRecipient);
+  public void deleteClient(clientBusinessRule client) {
   }
 
   @Override
-  public void consultarContas(Client client) {
-    contaInteractor.consultarContas(client);
+  public clientBusinessRule findClientById(int id) {
+    return null;
+  }
+
+  @Override
+  public ArrayList<clientBusinessRule> findAllClients() {
+    return null;
+  }
+
+  // Checking Account Manipulation
+
+  @Override
+  public void checkingAccountWithdraw(checkingAccountBusinessRule account) {
+
+  }
+
+  @Override
+  public void checkingAccountDeposit(checkingAccountBusinessRule account) {
+
+  }
+
+  @Override
+  public void checkingAccountTransfer(checkingAccountBusinessRule account, accountBusinessRule destinationAccount) {
+
+  }
+
+  @Override
+  public void checkingAccountConsult(checkingAccountBusinessRule account) {
+
+  }
+
+  // Savings Account Manipulation
+
+  @Override
+  public void savingsAccountWithdraw(savingsAccountBusinessRule account) {
+
+  }
+
+  @Override
+  public void savingsAccountDeposit(savingsAccountBusinessRule account) {
+
+  }
+
+  @Override
+  public void savingsAccountTransfer(savingsAccountBusinessRule account, accountBusinessRule destinationAccount) {
+
+  }
+
+  @Override
+  public void savingsAccountConsult(savingsAccountBusinessRule account) {
+
   }
 }

@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BankController {
+public class bankController {
 
   private bankInteractor bancoInteractor;
 
   @Autowired
-  public BankController(bankInteractor bancoInteractor) {
+  public bankController(bankInteractor bancoInteractor) {
     this.bancoInteractor = bancoInteractor;
   }
 
-  @GetMapping("/hello")
+  @GetMapping("/bank")
   public void hello(@RequestParam(value = "name") String name) {
     bankBusinessRule entity = new bankBusinessRule(name);
     this.bancoInteractor.createBank(entity);

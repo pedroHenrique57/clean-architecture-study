@@ -1,13 +1,20 @@
 package Edu.Syne.application.usecases.client.gateway;
 
-import Edu.Syne.application.entities.Client;
+import Edu.Syne.application.entities.clientBusinessRule;
 
-public interface ClientGateway {
-  public Client create(Client client);
+import java.util.ArrayList;
 
-  public Client read(Client client);
+public interface clientGateway {
+  public void createClient(clientBusinessRule client);
 
-  public Client update(Client client);
+  public void readClient(clientBusinessRule client);
 
-  public Client delete(Client client);
+  public void updateClient(clientBusinessRule client);
+
+  public void deleteClient(clientBusinessRule client);
+
+  public clientBusinessRule findClientById(int id);
+
+  public ArrayList<clientBusinessRule> findAllClients();
+
 }

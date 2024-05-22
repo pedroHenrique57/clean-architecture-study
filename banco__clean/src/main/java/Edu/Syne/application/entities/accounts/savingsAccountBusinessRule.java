@@ -8,5 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 
-public class savingsAccount extends accountBusinessRule {
+public class savingsAccountBusinessRule extends accountBusinessRule {
 }

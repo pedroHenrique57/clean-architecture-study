@@ -1,14 +1,21 @@
 package Edu.Syne.application.usecases.conta;
 
+import Edu.Syne.application.entities.accounts.accountBusinessRule;
 import Edu.Syne.application.entities.clientBusinessRule;
 
-public interface ContaInterface {
+import java.util.ArrayList;
 
-  public void saqueConta(clientBusinessRule client);
+public interface accountInterface {
 
-  public void depositoConta(clientBusinessRule client);
+  public void createAccount(accountBusinessRule account);
 
-  public void transferenciaConta(clientBusinessRule clientSender, clientBusinessRule clientRecipient);
+  public void readAccount(accountBusinessRule account);
 
-  public void consultarContas(clientBusinessRule client);
+  public void updateAccount(accountBusinessRule account);
+
+  public void deleteAccount(accountBusinessRule account);
+
+  public clientBusinessRule findClientById(int id);
+
+  public ArrayList<clientBusinessRule> findAllClients();
 }

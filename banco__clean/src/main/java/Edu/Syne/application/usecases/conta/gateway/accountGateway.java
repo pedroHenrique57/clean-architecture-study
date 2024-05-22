@@ -1,14 +1,21 @@
 package Edu.Syne.application.usecases.conta.gateway;
 
+import Edu.Syne.application.entities.accounts.accountBusinessRule;
 import Edu.Syne.application.entities.clientBusinessRule;
 
-public interface contaGateway {
+import java.util.ArrayList;
 
-  public void createAccount(clientBusinessRule client);
+public interface accountGateway {
 
-  public void read(clientBusinessRule client);
+  public void createAccount(accountBusinessRule account);
 
-  public void update(clientBusinessRule client);
+  public void readAccount(accountBusinessRule account);
 
-  public void delete(clientBusinessRule client);
+  public void updateAccount(accountBusinessRule account);
+
+  public void deleteAccount(accountBusinessRule account);
+
+  public clientBusinessRule findClientById(int id);
+
+  public ArrayList<clientBusinessRule> findAllClients();
 }

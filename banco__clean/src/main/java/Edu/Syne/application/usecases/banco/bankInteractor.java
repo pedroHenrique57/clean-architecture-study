@@ -10,16 +10,16 @@ import java.util.ArrayList;
 @Component
 public class bankInteractor implements bankInterface {
 
-  private final bankGateway bankRepository;
+  private final bankGateway bankGateway;
 
   @Autowired
-  public bankInteractor(bankGateway bankRepository) {
-    this.bankRepository = bankRepository;
+  public bankInteractor(bankGateway bankGateway) {
+    this.bankGateway = bankGateway;
   }
 
   @Override
   public void createBank(bankBusinessRule bankEntity) {
-    this.bankRepository.createBank(bankEntity);
+    this.bankGateway.createBank(bankEntity);
   }
 
   @Override

@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 
-public class checkingAccount extends accountBusinessRule {
+public class checkingAccountBusinessRule extends accountBusinessRule {
 
 }

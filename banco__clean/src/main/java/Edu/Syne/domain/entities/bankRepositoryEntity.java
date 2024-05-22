@@ -1,6 +1,6 @@
 package Edu.Syne.domain.entities;
 
-import Edu.Syne.application.entities.Client;
+import Edu.Syne.application.entities.clientBusinessRule;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,5 +18,5 @@ public class bankRepositoryEntity {
 
   private String name;
 
-  private List<Client> clients__id__client;
+  private List<clientBusinessRule> clients__id__client;
 }
