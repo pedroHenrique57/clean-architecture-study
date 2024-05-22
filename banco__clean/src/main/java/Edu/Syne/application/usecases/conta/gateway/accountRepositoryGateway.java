@@ -1,12 +1,12 @@
 package Edu.Syne.application.usecases.conta.gateway;
 
-import Edu.Syne.application.entities.Client;
+import Edu.Syne.application.entities.clientBusinessRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ContaRepositoryGateway implements ContaGateway {
+public class ContaRepositoryGateway implements accountGateway {
 
   private final JdbcTemplate template;
 
@@ -16,21 +16,21 @@ public class ContaRepositoryGateway implements ContaGateway {
   }
 
   @Override
-  public void create(Client client) {
+  public void create(clientBusinessRule client) {
   }
 
   @Override
-  public void read(Client client) {
-
-  }
-
-  @Override
-  public void update(Client client) {
+  public void read(clientBusinessRule client) {
 
   }
 
   @Override
-  public void delete(Client client) {
+  public void update(clientBusinessRule client) {
+
+  }
+
+  @Override
+  public void delete(clientBusinessRule client) {
 
   }
 }
