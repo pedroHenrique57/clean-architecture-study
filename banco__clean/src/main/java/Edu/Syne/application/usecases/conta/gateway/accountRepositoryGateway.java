@@ -36,7 +36,6 @@ public class accountRepositoryGateway implements accountGateway {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
   @Override
