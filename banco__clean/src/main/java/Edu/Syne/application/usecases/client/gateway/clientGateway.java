@@ -1,20 +1,22 @@
 package Edu.Syne.application.usecases.client.gateway;
 
 import Edu.Syne.application.entities.clientBusinessRule;
+import Edu.Syne.application.usecases.accounts.accountEnum.accountType;
+import org.springframework.dao.DataAccessException;
 
 import java.util.ArrayList;
 
 public interface clientGateway {
-  public void createClient(clientBusinessRule client);
+  void createClient(clientBusinessRule client, accountType accountType) throws IllegalArgumentException, DataAccessException;
 
-  public void readClient(clientBusinessRule client);
+  void readClient(clientBusinessRule client);
 
-  public void updateClient(clientBusinessRule client);
+  void updateClient(clientBusinessRule client);
 
-  public void deleteClient(clientBusinessRule client);
+  void deleteClient(clientBusinessRule client);
 
-  public clientBusinessRule findClientById(int id);
+  clientBusinessRule findClientById(int id);
 
-  public ArrayList<clientBusinessRule> findAllClients();
+  ArrayList<clientBusinessRule> findAllClients();
 
 }

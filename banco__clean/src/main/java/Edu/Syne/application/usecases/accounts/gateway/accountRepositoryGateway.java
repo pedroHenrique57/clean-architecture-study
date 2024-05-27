@@ -1,8 +1,9 @@
-package Edu.Syne.application.usecases.conta.gateway;
+package Edu.Syne.application.usecases.accounts.gateway;
 
 import Edu.Syne.application.entities.accounts.accountBusinessRule;
 import Edu.Syne.application.entities.accounts.checkingAccountBusinessRule;
 import Edu.Syne.application.entities.accounts.savingsAccountBusinessRule;
+import Edu.Syne.application.usecases.accounts.accountEnum.accountType;
 import Edu.Syne.domain.entities.checkingAccountRepositoryEntity;
 import Edu.Syne.domain.entities.savingsAccountRepositoryEntity;
 import Edu.Syne.infrastructure.rowMappers.checkingAccountRepositoryEntityMapper;
@@ -27,14 +28,14 @@ public class accountRepositoryGateway implements accountGateway {
   }
 
   @Override
-  public UUID createAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+  public UUID createAccount(accountType accountType) throws DataAccessException, IllegalArgumentException {
     String sql;
     UUID uuid = UUID.randomUUID();
 
     // Try to define which sql to use according to the type of account
-    if (account instanceof checkingAccountBusinessRule) {
+    if (accountType == accountType.checking) {
       sql = "INSERT INTO checking__account (id__checking__account, balance) values (?, ?)";
-    } else if (account instanceof savingsAccountBusinessRule) {
+    } else if (accountType == accountType.savings) {
       sql = "INSERT INTO savings__account (id__savings__account, balance) values (?, ?)";
     } else {
       throw new IllegalArgumentException("Account not supported");
@@ -55,19 +56,19 @@ public class accountRepositoryGateway implements accountGateway {
 
     // Verify if UUID have the right size to work to optimize time
     if (account.getId__account().length() != 36) {
-      throw new IllegalArgumentException("Account UUID have to be 36 characters");
+      throw new IllegalArgumentException("Account UUID must have 36 characters");
     }
 
     // Try to define which sql to use and what entity use according to the type of account
     if (account instanceof checkingAccountBusinessRule) {
       sql = "UPDATE checking__account SET balance = ? WHERE id__checking__account = ?";
       persistenceCheckingAccount = new checkingAccountRepositoryEntity();
-      persistenceCheckingAccount.setId__checking_account(account.getId__account());
+      persistenceCheckingAccount.setId__checking__account(account.getId__account());
       persistenceCheckingAccount.setBalance(account.getBalance());
     } else if (account instanceof savingsAccountBusinessRule) {
       sql = "UPDATE savings__account SET balance = ? WHERE id__savings__account = ?";
       persistenceSavingsAccount = new savingsAccountRepositoryEntity();
-      persistenceSavingsAccount.setId__savings_account(account.getId__account());
+      persistenceSavingsAccount.setId__savings__account(account.getId__account());
       persistenceSavingsAccount.setBalance(account.getBalance());
     } else {
       throw new IllegalArgumentException("Account not supported");
@@ -82,7 +83,7 @@ public class accountRepositoryGateway implements accountGateway {
 
     // Verify if UUID have the right size to work to optimize time
     if (account.getId__account().length() != 36) {
-      throw new IllegalArgumentException("Account UUID have to be 36 characters");
+      throw new IllegalArgumentException("Account UUID must have 36 characters");
     }
 
     // Try to define which sql to use according to the type of account
@@ -103,7 +104,7 @@ public class accountRepositoryGateway implements accountGateway {
 
     // Verify if UUID have the right size to work to optimize time
     if (account.getId__account().length() != 36) {
-      throw new IllegalArgumentException("Account UUID have to be 36 characters");
+      throw new IllegalArgumentException("Account UUID must have 36 characters");
     }
 
     // Try to define which sql to use and return a different bank entity representation according to the type of account

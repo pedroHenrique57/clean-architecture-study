@@ -4,9 +4,11 @@ import Edu.Syne.application.entities.accounts.accountBusinessRule;
 import Edu.Syne.application.entities.accounts.checkingAccountBusinessRule;
 import Edu.Syne.application.entities.accounts.savingsAccountBusinessRule;
 import Edu.Syne.application.entities.clientBusinessRule;
+import Edu.Syne.application.usecases.accounts.accountEnum.accountType;
 import Edu.Syne.application.usecases.client.gateway.clientGateway;
 import Edu.Syne.application.usecases.client.gateway.clientRepositoryGateway;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -24,8 +26,8 @@ public class clientInteractor implements clientInterface {
   //  Client CRUD
 
   @Override
-  public void createClient(clientBusinessRule client) {
-    this.clientGateway.createClient(client);
+  public void createClient(clientBusinessRule client, accountType accountType) throws IllegalArgumentException, DataAccessException {
+    this.clientGateway.createClient(client, accountType);
   }
 
   @Override

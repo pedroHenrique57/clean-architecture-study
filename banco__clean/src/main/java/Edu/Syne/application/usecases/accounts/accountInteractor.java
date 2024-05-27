@@ -1,12 +1,14 @@
-package Edu.Syne.application.usecases.conta;
+package Edu.Syne.application.usecases.accounts;
 
 import Edu.Syne.application.entities.accounts.accountBusinessRule;
-import Edu.Syne.application.usecases.conta.gateway.accountGateway;
+import Edu.Syne.application.usecases.accounts.accountEnum.accountType;
+import Edu.Syne.application.usecases.accounts.gateway.accountGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class accountInteractor implements accountInterface {
@@ -18,8 +20,8 @@ public class accountInteractor implements accountInterface {
   }
 
   @Override
-  public void createAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
-    accountGateway.createAccount(account);
+  public UUID createAccount(accountType accountType) throws DataAccessException, IllegalArgumentException {
+    return accountGateway.createAccount(accountType);
   }
 
 

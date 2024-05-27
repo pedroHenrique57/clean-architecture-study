@@ -4,43 +4,45 @@ import Edu.Syne.application.entities.accounts.accountBusinessRule;
 import Edu.Syne.application.entities.accounts.checkingAccountBusinessRule;
 import Edu.Syne.application.entities.accounts.savingsAccountBusinessRule;
 import Edu.Syne.application.entities.clientBusinessRule;
+import Edu.Syne.application.usecases.accounts.accountEnum.accountType;
+import org.springframework.dao.DataAccessException;
 
 import java.util.ArrayList;
 
-public interface clientInterface {
+interface clientInterface {
 
   //  Client CRUD
 
-  public void createClient(clientBusinessRule client);
+  void createClient(clientBusinessRule client, accountType accountType) throws IllegalArgumentException, DataAccessException;
 
-  public void readClient(clientBusinessRule client);
+  void readClient(clientBusinessRule client);
 
-  public void updateClient(clientBusinessRule client);
+  void updateClient(clientBusinessRule client);
 
-  public void deleteClient(clientBusinessRule client);
+  void deleteClient(clientBusinessRule client);
 
-  public clientBusinessRule findClientById(int id);
+  clientBusinessRule findClientById(int id);
 
-  public ArrayList<clientBusinessRule> findAllClients();
+  ArrayList<clientBusinessRule> findAllClients();
 
 
   // Checking Account Manipulation
 
-  public void checkingAccountWithdraw(checkingAccountBusinessRule account);
+  void checkingAccountWithdraw(checkingAccountBusinessRule account);
 
-  public void checkingAccountDeposit(checkingAccountBusinessRule account);
+  void checkingAccountDeposit(checkingAccountBusinessRule account);
 
-  public void checkingAccountTransfer(checkingAccountBusinessRule account, accountBusinessRule destinationAccount);
+  void checkingAccountTransfer(checkingAccountBusinessRule account, accountBusinessRule destinationAccount);
 
-  public void checkingAccountConsult(checkingAccountBusinessRule account);
+  void checkingAccountConsult(checkingAccountBusinessRule account);
 
   // Savings Account Manipulation
 
-  public void savingsAccountWithdraw(savingsAccountBusinessRule account);
+  void savingsAccountWithdraw(savingsAccountBusinessRule account);
 
-  public void savingsAccountDeposit(savingsAccountBusinessRule account);
+  void savingsAccountDeposit(savingsAccountBusinessRule account);
 
-  public void savingsAccountTransfer(savingsAccountBusinessRule account, accountBusinessRule destinationAccount);
+  void savingsAccountTransfer(savingsAccountBusinessRule account, accountBusinessRule destinationAccount);
 
-  public void savingsAccountConsult(savingsAccountBusinessRule account);
+  void savingsAccountConsult(savingsAccountBusinessRule account);
 }

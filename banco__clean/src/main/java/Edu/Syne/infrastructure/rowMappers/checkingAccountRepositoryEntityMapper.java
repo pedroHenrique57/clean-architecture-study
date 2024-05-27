@@ -11,7 +11,7 @@ public class checkingAccountRepositoryEntityMapper implements RowMapper<savingsA
   @Override
   public savingsAccountRepositoryEntity mapRow(ResultSet rs, int rowNum) throws SQLException {
     savingsAccountRepositoryEntity account = new savingsAccountRepositoryEntity();
-    account.setId__savings_account(rs.getString("id__checking__account"));
+    account.setId__savings__account(rs.getString("id__checking__account"));
     account.setBalance(rs.getDouble("balance"));
     return account;
   }

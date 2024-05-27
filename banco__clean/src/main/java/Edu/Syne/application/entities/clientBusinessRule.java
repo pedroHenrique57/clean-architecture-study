@@ -1,28 +1,21 @@
 package Edu.Syne.application.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class clientBusinessRule {
-
-  public clientBusinessRule(String name, Integer id__checking__account, Integer id__savings__account) {
-    this.name = name;
-    this.id__checking__account = id__checking__account;
-    this.id__savings__account = id__savings__account;
-  }
-
-  public clientBusinessRule(String name, Integer id__checking__account) {
-    this.name = name;
-    this.id__checking__account = id__checking__account;
-  }
+  String id__client;
 
   String name;
 
-  Integer id__checking__account;
+  String id__checking__account;
 
-  Integer id__savings__account;
-
+  String id__savings__account;
 }
