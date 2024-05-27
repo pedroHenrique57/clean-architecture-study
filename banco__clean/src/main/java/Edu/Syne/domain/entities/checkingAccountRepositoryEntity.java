@@ -9,9 +9,7 @@ import lombok.ToString;
 @ToString
 
 public class checkingAccountRepositoryEntity {
+  String id__checking_account;
 
-  int id__checking_account;
-
-  int balance;
-
+  Double balance;
 }

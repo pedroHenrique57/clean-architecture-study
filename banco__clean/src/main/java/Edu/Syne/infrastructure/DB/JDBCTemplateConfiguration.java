@@ -1,4 +1,4 @@
-package Edu.Syne.external.DB;
+package Edu.Syne.infrastructure.DB;
 
 import Edu.Syne.Main;
 import com.mysql.cj.jdbc.MysqlDataSource;

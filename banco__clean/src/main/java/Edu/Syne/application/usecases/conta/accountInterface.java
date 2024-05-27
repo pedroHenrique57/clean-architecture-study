@@ -1,21 +1,19 @@
 package Edu.Syne.application.usecases.conta;
 
 import Edu.Syne.application.entities.accounts.accountBusinessRule;
-import Edu.Syne.application.entities.clientBusinessRule;
+import org.springframework.dao.DataAccessException;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface accountInterface {
 
-  public void createAccount(accountBusinessRule account);
+  void createAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException;
 
-  public void readAccount(accountBusinessRule account);
+  void updateAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException;
 
-  public void updateAccount(accountBusinessRule account);
+  void deleteAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException;
 
-  public void deleteAccount(accountBusinessRule account);
+  Object findAccountById(accountBusinessRule account) throws DataAccessException, IllegalArgumentException;
 
-  public clientBusinessRule findClientById(int id);
-
-  public ArrayList<clientBusinessRule> findAllClients();
+  List<?> findAllAccounts(accountBusinessRule account) throws DataAccessException, IllegalArgumentException;
 }

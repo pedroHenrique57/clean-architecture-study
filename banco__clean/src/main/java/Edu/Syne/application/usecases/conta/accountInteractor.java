@@ -1,12 +1,12 @@
 package Edu.Syne.application.usecases.conta;
 
 import Edu.Syne.application.entities.accounts.accountBusinessRule;
-import Edu.Syne.application.entities.clientBusinessRule;
 import Edu.Syne.application.usecases.conta.gateway.accountGateway;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class accountInteractor implements accountInterface {
@@ -18,32 +18,28 @@ public class accountInteractor implements accountInterface {
   }
 
   @Override
-  public void createAccount(accountBusinessRule account) {
-    this.accountGateway.createAccount(account);
+  public void createAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+    accountGateway.createAccount(account);
+  }
+
+
+  @Override
+  public void updateAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+    accountGateway.updateAccount(account);
   }
 
   @Override
-  public void readAccount(accountBusinessRule account) {
-
+  public void deleteAccount(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+    accountGateway.deleteAccount(account);
   }
 
   @Override
-  public void updateAccount(accountBusinessRule account) {
-
+  public Object findAccountById(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+    return accountGateway.findAccountById(account);
   }
 
   @Override
-  public void deleteAccount(accountBusinessRule account) {
-
-  }
-
-  @Override
-  public clientBusinessRule findClientById(int id) {
-    return null;
-  }
-
-  @Override
-  public ArrayList<clientBusinessRule> findAllClients() {
-    return null;
+  public List<?> findAllAccounts(accountBusinessRule account) throws DataAccessException, IllegalArgumentException {
+    return accountGateway.findAllAccounts(account);
   }
 }

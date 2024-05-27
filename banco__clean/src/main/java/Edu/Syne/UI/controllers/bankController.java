@@ -1,4 +1,4 @@
-package Edu.Syne.controllers;
+package Edu.Syne.UI.controllers;
 
 import Edu.Syne.application.entities.bankBusinessRule;
 import Edu.Syne.application.usecases.banco.bankInteractor;

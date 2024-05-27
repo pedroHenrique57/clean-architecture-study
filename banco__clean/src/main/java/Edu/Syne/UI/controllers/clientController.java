@@ -1,4 +1,4 @@
-package Edu.Syne.controllers;
+package Edu.Syne.UI.controllers;
 
 import Edu.Syne.application.entities.clientBusinessRule;
 import Edu.Syne.application.usecases.client.clientInteractor;

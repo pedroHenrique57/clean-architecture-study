@@ -1,12 +1,14 @@
 package Edu.Syne.application.entities.accounts;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
-@Getter
-@Setter
+@SuperBuilder
 @AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 
 public class savingsAccountBusinessRule extends accountBusinessRule {
 }
